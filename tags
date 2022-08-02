@@ -1,0 +1,13 @@
+
+
+
+     php artisan serve
+
+    php artisan migrate
+    php artisan make:migration create_test --create=table
+    php artisan migrate:refresh
+    php artisan make:controller test
+    php artisan make:model test
+    php artisan make:migration  create_test_table 
+
+
