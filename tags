@@ -1,13 +1,63 @@
 
+                            Laravel
 
+     Laravel Installer            composer global require laravel/installer
+     Composer Create-Project      laravel new blog
 
      php artisan serve
+     php artisan make:controller ..Controller --resource
+     php artisan make:model ... -m
+     php artisan route:list
+     php artisan migrate
+     php artisan migrate:refresh
+     php artisan make:migration create_students --create=table
+     php artisan migrate:rollback
 
-    php artisan migrate
-    php artisan make:migration create_students --create=table
-    php artisan migrate:refresh
-    php artisan make:controller studentsController --resource
-    php artisan make:model students
- 
+     php artisan tinker
+     $user=new User;
+    $user->name='Mohammmad Ali';
+     $user->email='Mohammmad@gmail.com';
+     $user->password='password';
+     $user->save();
+     User::all()
+     User::pluck('name')
+
+
+
+
+    Route::resource('/resource', TestRController::class,['parameters' => ['create' => 'id']]);
+    Route::get('resource/create/{id}', [App\Http\Controllers\TestRController::class, 'create']);
+    Route::prefix('admin')->group(function (){ Route::get('/users', function () { });});
+
+
+Authentication
+     composer require laravel/ui
+     composer require laravel/breeze --dev
+     php artisan ui bootstrap --auth
+     npm install
+     npm run dev
+
+
+    $request->session()->flash('success','Walk as if you are kissing the Earth with your feet');
+
+component
+    php artisan make:component LatestPosts       --inline (optional)
+        public $name ;
+        public $init ;
+        public function __construct($name,$init)
+        {
+            $this->name=$name;
+            $this->init=$init;
+        }
+
+Relationship
+
+ One to One Relationship
+     public function post(){return $this->hasOne(Post::class);}
+     public function user(){return $this->belongsTo(User::class);}
+  $userContactInfo =Post::find(1)->user;
+
+
+
 
 
