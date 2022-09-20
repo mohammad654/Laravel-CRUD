@@ -2,7 +2,7 @@
                             Laravel
 
      Laravel Installer            composer global require laravel/installer
-     Composer Create-Project      laravel new blog
+     Composer Create-Project      laravel new blog Authentication
 
      php artisan serve
      php artisan make:controller ..Controller --resource
@@ -12,6 +12,7 @@
      php artisan migrate:refresh
      php artisan make:migration create_students --create=table
      php artisan migrate:rollback
+     php artisan storage:link
 
      php artisan tinker
      $user=new User;
@@ -57,6 +58,55 @@ Relationship
      public function user(){return $this->belongsTo(User::class);}
   $userContactInfo =Post::find(1)->user;
 
+
+
+
+             <div class="col-md-6">
+                    <div class="form-group">
+                        <label for=""></label>
+                        <input type="text" class="form-control rounded text-white" placeholder="" name="">
+                    </div>
+                </div>
+
+
+
+musicApp
+    laravel new musicApp
+    composer require laravel/jetstream
+    php artisan jetstream:install livewire
+    npm install &&  npm run dev
+    add column to table and in model fillable
+    to add more field view auth register
+    app action fortify CreateNewUser  add  field into create 'role' =>false,
+    app Providers RouteServiceProvider change /dashboard
+    check if admin
+    php artisan make:controller AdminController --resource
+    php artisan make:controller UserController --resource
+      php artisan make:model Genre -m
+
+Genres
+    php artisan make:controller GenresController --resource
+
+    users table add  $table->boolean('role')->nullable();
+
+    Edite form and Fortify model
+    Providers RouteServiceProvider  edit to/''
+    Route home  HomeController
+    php artisan make:controller SongHasGenreController -r
+
+    php artisan make:model SongHasGenre -m
+
+
+
+    php artisan make:middleware  IsAdmin
+
+
+
+  php artisan migrate:refresh
+
+
+              $table->unsignedBigInteger('genre_id');
+              $table->foreign('artist_id')->references('id')->on('artists')->onDelete('cascade')->onUpdate('cascade');
 
 
 
